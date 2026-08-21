@@ -15,7 +15,7 @@ devcontainer features test --features claude-tools --base-image mcr.microsoft.co
 
 ## Publishing
 
-Pushing changes under `src/` to `main` runs `release.yml`, which publishes to GHCR via `devcontainers/action`. After the first publish, make the package public: GitHub → Packages → `devcontainer-features/claude-tools` → Package settings → Change visibility.
+Pushing changes under `src/` to `main` runs `release.yml`, which publishes to GHCR via `devcontainers/action`. A newly added feature is published as a private package; flip it to public in its GitHub package settings before referencing it from a `devcontainer.json`.
 
 ## Releasing a new version
 
