@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec claude --permission-mode auto --model fable --effort high "$@"

@@ -1,0 +1,25 @@
+{
+  "id": "claude-tools",
+  "version": "1.0.0",
+  "name": "Claude Code + Bun",
+  "description": "Installs the native Claude Code binary, Bun, and opus/fable/agents wrapper commands.",
+  "documentationURL": "https://github.com/rynz/devcontainer-features/tree/main/src/claude-tools",
+  "options": {
+    "installBun": {
+      "type": "boolean",
+      "default": true,
+      "description": "Install Bun to /usr/local/bin"
+    },
+    "claudeVersion": {
+      "type": "string",
+      "default": "latest",
+      "description": "Claude Code version to install (latest, stable, or a specific version)"
+    },
+    "installWrappers": {
+      "type": "boolean",
+      "default": true,
+      "description": "Install the opus, fable and agents wrapper commands"
+    }
+  },
+  "installsAfter": ["ghcr.io/devcontainers/features/common-utils"]
+}

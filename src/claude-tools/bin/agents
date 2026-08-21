@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+exec claude agents --permission-mode auto --model fable --effort high "$@"
