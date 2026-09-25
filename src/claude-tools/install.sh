@@ -6,6 +6,7 @@ set -euo pipefail
 INSTALLBUN="${INSTALLBUN:-true}"
 CLAUDEVERSION="${CLAUDEVERSION:-latest}"
 INSTALLWRAPPERS="${INSTALLWRAPPERS:-true}"
+INSTALLPYTHON="${INSTALLPYTHON:-true}"
 
 USERNAME="${_REMOTE_USER:-root}"
 USER_HOME="${_REMOTE_USER_HOME:-$(getent passwd "$USERNAME" | cut -d: -f6)}"
@@ -14,6 +15,14 @@ export DEBIAN_FRONTEND=noninteractive
 if ! command -v curl >/dev/null || ! command -v unzip >/dev/null; then
   apt-get update
   apt-get install -y --no-install-recommends ca-certificates curl unzip
+  rm -rf /var/lib/apt/lists/*
+fi
+
+if [ "$INSTALLPYTHON" = "true" ]; then
+  echo "==> Installing python (system-wide)"
+  # python-is-python3 provides the bare `python` command.
+  apt-get update
+  apt-get install -y --no-install-recommends python3 python3-pip python3-venv python-is-python3
   rm -rf /var/lib/apt/lists/*
 fi
 

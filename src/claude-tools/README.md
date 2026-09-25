@@ -1,6 +1,6 @@
 # claude-tools
 
-Installs the native [Claude Code](https://code.claude.com) binary (no Node.js required), [Bun](https://bun.sh), and three wrapper commands:
+Installs the native [Claude Code](https://code.claude.com) binary (no Node.js required), [Bun](https://bun.sh), Python 3 (with `pip`, `venv` and the `python` alias), and three wrapper commands:
 
 | Command  | Runs                                                               |
 | -------- | ------------------------------------------------------------------ |
@@ -18,12 +18,13 @@ Installs the native [Claude Code](https://code.claude.com) binary (no Node.js re
 
 ## Options
 
-| Option            | Type    | Default  | Description                               |
-| ----------------- | ------- | -------- | ----------------------------------------- |
-| `installBun`      | boolean | `true`   | Install Bun to `/usr/local/bin`           |
-| `claudeVersion`   | string  | `latest` | `latest`, `stable`, or a specific version |
-| `installWrappers` | boolean | `true`   | Install `opus`, `fable`, `agents`         |
+| Option            | Type    | Default  | Description                                |
+| ----------------- | ------- | -------- | ------------------------------------------ |
+| `installBun`      | boolean | `true`   | Install Bun to `/usr/local/bin`            |
+| `claudeVersion`   | string  | `latest` | `latest`, `stable`, or a specific version  |
+| `installWrappers` | boolean | `true`   | Install `opus`, `fable`, `agents`          |
+| `installPython`   | boolean | `true`   | Install `python3`, `pip`, `venv`, `python` |
 
-Claude is installed per-user (into `~/.local/share/claude`, symlinked from `~/.local/bin/claude`) so its built-in auto-updater keeps working; `/usr/local/bin/claude` is a shim that execs the per-user binary; the `claudeVersion` option only sets the starting version. Bun and the wrappers go to `/usr/local/bin`.
+Claude is installed per-user (into `~/.local/share/claude`, symlinked from `~/.local/bin/claude`) so its built-in auto-updater keeps working; `/usr/local/bin/claude` is a shim that execs the per-user binary; the `claudeVersion` option only sets the starting version. Bun and the wrappers go to `/usr/local/bin`; Python comes from the distro `apt` packages.
 
 Per-user config (`~/.claude/settings.json`, `gh` auth, etc.) is out of scope — do that in `postCreateCommand`.

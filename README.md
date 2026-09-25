@@ -4,7 +4,7 @@ Dev Container Features published to `ghcr.io/rynz/devcontainer-features`.
 
 | Feature | Description |
 | --- | --- |
-| [claude-tools](./src/claude-tools) | Native Claude Code binary, Bun, and `opus`/`fable`/`agents` wrappers |
+| [claude-tools](./src/claude-tools) | Native Claude Code binary, Bun, Python, and `opus`/`fable`/`agents` wrappers |
 
 ## Local test
 
