@@ -1,0 +1,15 @@
+{
+  "name": "Ubuntu",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/rynz/devcontainer-features/claude-tools:1": {}
+  },
+  "postCreateCommand": "bash .devcontainer/post-create.sh",
+  "remoteUser": "vscode",
+  "mounts": ["source=${localEnv:HOME}/.ssh/ssh-agent.sock,target=/ssh-agent,type=bind"],
+  "remoteEnv": {
+    "GH_TOKEN": "${localEnv:GH_TOKEN}",
+    "SSH_AUTH_SOCK": "/ssh-agent"
+  }
+}
